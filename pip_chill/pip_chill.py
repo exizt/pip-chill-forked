@@ -63,6 +63,8 @@ def chill(show_all=False, no_chill=False):
     if no_chill:
         ignored_packages.add("pip-chill")
 
+    required_packages = {"django"}
+
     # Gather all packages that are requirements and will be auto-installed.
     distributions = {}
     dependencies = {}
@@ -79,6 +81,9 @@ def chill(show_all=False, no_chill=False):
             )
 
         for requirement in distribution.requires():
+            if requirement.key in required_packages:
+                continue
+
             if requirement.key not in ignored_packages:
                 if requirement.key in dependencies:
                     dependencies[requirement.key].required_by.add(
