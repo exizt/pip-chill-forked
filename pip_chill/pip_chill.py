@@ -54,7 +54,7 @@ class Distribution:
         return f"{self.name}=={self.version}"
 
 
-def chill(show_all=False, no_chill=False):
+def chill(show_all=False, no_chill=False, required_pkgs=None):
     if show_all:
         ignored_packages = ()
     else:
@@ -63,7 +63,11 @@ def chill(show_all=False, no_chill=False):
     if no_chill:
         ignored_packages.add("pip-chill")
 
-    required_packages = {"django"}
+    # required_packages = {"django"}
+    if required_pkgs is not None:
+        required_packages = required_pkgs
+    else:
+        required_packages = []
 
     # Gather all packages that are requirements and will be auto-installed.
     distributions = {}

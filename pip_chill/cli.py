@@ -38,10 +38,16 @@ def main():
         dest="verbose",
         help="list commented out dependencies too.",
     )
+    parser.add_argument(
+        "--required",
+        nargs='+',
+        dest="required_pkgs",
+        help="required package list",
+    )
     args = parser.parse_args()
 
     distributions, dependencies = pip_chill.chill(
-        show_all=args.show_all, no_chill=args.no_chill
+        show_all=args.show_all, no_chill=args.no_chill, required_pkgs=args.required_pkgs
     )
     for package in distributions:
         if args.no_version:
