@@ -39,7 +39,7 @@ def main():
         help="list commented out dependencies too.",
     )
     parser.add_argument(
-        "--required",
+        "--required-pkgs",
         nargs='+',
         dest="required_pkgs",
         help="required package list",
