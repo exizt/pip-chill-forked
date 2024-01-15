@@ -7,8 +7,8 @@
 
 
 pip chill에 대한 링크
+* Github : https://github.com/rbanffy/pip-chill
 * Documentation: https://pip-chill.readthedocs.io.
-* github : https://github.com/rbanffy/pip-chill
 
 
 # 설명
